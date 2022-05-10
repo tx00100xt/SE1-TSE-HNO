@@ -5,11 +5,11 @@ This is a modification for Serious Sam Classic The Second Encounter.
 This mod required https://github.com/tx00100xt/SeriousSamClassic to run.
 Hero Number One was created by fans of the game Serious Sam TSE and is distributed for free.
 
-![Lava Planet](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno_1.png)
+![HNO1](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno-1.png)
 
-![Ice Planet](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno_2.png)
+![HNO2](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno-2.png)
 
-![Ice Planet End](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno_3.png)
+![HNO3](https://raw.githubusercontent.com/tx00100xt/SE1-TSE-HNO/main/Images/hno-3.png)
 
 Download [HeroNumberOne.tar.xz] archive and unpack to  SeriousSamClassic/SamTSE/ directory.
 To start the modification, use the game menu - item Modification.
