@@ -14,7 +14,7 @@ Hero Number One was created by fans of the game Serious Sam TSE and is distribut
 Download [HeroNumberOne.tar.xz] archive and unpack to  SeriousSamClassic/SamTSE/ directory.
 To start the modification, use the game menu - item Modification.
 
-#### Building Serious Sam Alpha Remake (only for SS:TSE)
+#### Building Serious Sam Hero Number One modification (only for SS:TSE)
 
 Type this in your terminal:
 
