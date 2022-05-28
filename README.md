@@ -2,7 +2,7 @@
 
 What is Hero Number One?  
 This is a modification for Serious Sam Classic The Second Encounter.   
-This mod required https://github.com/tx00100xt/SeriousSamClassic to run.  
+This mod required https://github.com/tx00100xt/SeriousSamClassic or https://github.com/tx00100xt/SeriousSamClassic-VK to run.  
 Hero Number One was created by fans of the game Serious Sam TSE and is distributed for free.    
 
 Description: (From the authors of mod)  
