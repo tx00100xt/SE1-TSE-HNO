@@ -544,6 +544,15 @@
     <ClCompile Include="WorldSettingsController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Explosion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerParenter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RangeExplosion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\Common.h">
@@ -1488,6 +1497,24 @@
     <ClInclude Include="WorldSettingsController_tables.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Explosion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Explosion_tables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerParenter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerParenter_tables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeExplosion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RangeExplosion_tables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="NavigationMarker.es">
@@ -2359,6 +2386,15 @@
     </CustomBuild>
     <CustomBuild Include="..\..\Flesh\Data\Messages\Enemies\Woman.txt">
       <Filter>Messages</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Explosion.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="PlayerParenter.es">
+      <Filter>Class Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="RangeExplosion.es">
+      <Filter>Class Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

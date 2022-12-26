@@ -60,12 +60,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 extern "C" __attribute__ ((visibility("default"))) FLOAT _fWeaponFOVAdjuster = 1.0f;
 extern "C" __attribute__ ((visibility("default"))) FLOAT _fPlayerFOVAdjuster = 1.0f;
 #else
-DECL_DLL extern FLOAT _fWeaponFOVAdjuster = 1.0f;
-DECL_DLL extern FLOAT _fPlayerFOVAdjuster = 1.0f;
+extern __declspec(dllimport) FLOAT _fWeaponFOVAdjuster;
+extern __declspec(dllimport) FLOAT _fPlayerFOVAdjuster;
 #endif
 
 extern INDEX hud_bShowPing				= TRUE;
 extern INDEX hud_bShowKills				= TRUE;
+extern INDEX hud_bShowScore				= TRUE;
 
 extern void JumpFromBouncer(CEntity *penToBounce, CEntity *penBouncer);
 // from game
@@ -710,6 +711,7 @@ void CPlayer_OnInitClass(void)
   // declare player control variables
   _pShell->DeclareSymbol("persistent user INDEX	hud_bShowPing;",	&hud_bShowPing);
   _pShell->DeclareSymbol("persistent user INDEX	hud_bShowKills;",	&hud_bShowKills);
+  _pShell->DeclareSymbol("persistent user INDEX	hud_bShowScore;",	&hud_bShowScore);
 
   _pShell->DeclareSymbol("user INDEX ctl_bMoveForward;",  (void *) &pctlCurrent.bMoveForward);
   _pShell->DeclareSymbol("user INDEX ctl_bMoveBackward;", (void *) &pctlCurrent.bMoveBackward);
@@ -1659,7 +1661,7 @@ functions:
   CTString GetStatsRealWorldStarted(void)
   {
     struct tm *newtime;
-    STUBBED("this isn't 64-bit clean");
+    //STUBBED("this isn't 64-bit clean");
     time_t t = (time_t) m_iStartTime;
     newtime = localtime(&t);
 
@@ -3237,7 +3239,7 @@ functions:
 		   // override for diving
 		  SetRandomMouthPitch( 0.9f, 1.1f);
           PlaySound( m_soMouth, iSound, SOF_3D);
-          if(_pNetwork->IsPlayerLocal(this)) {IFeel_PlayEffect(strIFeel);}
+          if(_pNetwork->IsPlayerLocal(this)) {IFeel_PlayEffect((char *)strIFeel);}
         }
       }
     }
@@ -5437,7 +5439,7 @@ functions:
     m_iMayRespawn = 0;
     m_bEndOfLevel = TRUE;
     // remember end time
-    STUBBED("Not 64-bit clean");
+    //STUBBED("Not 64-bit clean");
     time_t t;
     time(&t);
     m_iEndTime = (INDEX) t;
@@ -6622,7 +6624,7 @@ procedures:
   Main(EVoid evoid)
   {
     // remember start time
-    STUBBED("Not 64-bit clean");
+    //STUBBED("Not 64-bit clean");
     time_t t;
     time(&t);
     m_iStartTime = (INDEX) t;
