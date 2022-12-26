@@ -59,14 +59,14 @@ functions:
     CEntity *penInflictor = m_penInflictor;
 
     if (m_bDebugMessages) {
-      CPrintF("[RD] %s : Damaging with Type=%s; Amount=%f;\n  HotSpot=%f; FallOff=%f;\n", GetName(), DamageType_enum.NameForValue(INDEX(m_dmtType)), m_fAmmount, m_rHotSpotRange, m_rFallOffRange);
+      CPrintF("[RD] %s : Damaging with Type=%s; Amount=%f;\n  HotSpot=%f; FallOff=%f;\n", (const char*)GetName(), (const char*)DamageType_enum.NameForValue(INDEX(m_dmtType)), m_fAmmount, m_rHotSpotRange, m_rFallOffRange);
     }
 
     if (m_bDamageFromThis) {
       penInflictor = this;
 
       if (m_bDebugMessages) {
-        CPrintF("  penInflictor=this;\n", GetName());
+        CPrintF("[RD] %s :   penInflictor=this;\n", (const char*)GetName());
       }
     }
 
@@ -74,7 +74,7 @@ functions:
       penInflictor = penCaused;
 
       if (m_bDebugMessages) {
-        CPrintF("  penInflictor=penCaused;\n", GetName());
+        CPrintF("[RD] %s :   penInflictor=penCaused;\n", (const char*)GetName());
       }
     }
 
@@ -111,7 +111,7 @@ functions:
     InflictRangeDamage(penInflictor, m_dmtType, m_fAmmount, vPosition, m_rHotSpotRange, m_rFallOffRange);
 
     if (m_bDebugMessages) {
-      CPrintF("  done!\n", GetName());
+      CPrintF("[RD] %s :   done!\n", (const char*)GetName());
     }
   }
 
