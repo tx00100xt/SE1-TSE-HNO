@@ -20,7 +20,10 @@ ST-TEAM is author this mod for windows.
 Download [HeroNumberOne.tar.xz] archive and unpack to  SeriousSamClassic/SamTSE/ directory.
 To start the modification, use the game menu - item Modification.
 
-#### Building Serious Sam Hero Number One modification (only for SS:TSE)
+Building Serious Sam Hero Number One (only for SS:TSE)
+------------------------------------------------------
+
+### Linux
 
 Type this in your terminal:
 
@@ -31,11 +34,54 @@ cd SE1-TSE-HNO/Sources
 ```
 After that , libraries will be collected in the x32 or x64 directory . Copy them to SeriousSamClassic/SamTSE/Mods/HNO/Bin folder.
 
-### Suported OS
-linux
+### Gentoo
 
-### Other OS
-Not supported
+To build a game for gentoo, use a https://github.com/tx00100xt/serioussam-overlay containing ready-made ebuilds for building the game and add-ons.
+
+### Arch Linux
+
+To build a game under Arch Linux you can use the package from AUR: https://aur.archlinux.org/packages/serioussam
+
+### Raspberry Pi
+
+The build for raspberry pi is similar to the build for Linux, you just need to add an additional build key.
+
+```
+cd SE1-TSE-HNO/Sources
+./build-linux64.sh -DRPI4=TRUE	# use build-linux32.sh for 32-bits
+```
+### FreeBSD
+
+Install bash. 
+Type this in your terminal:
+
+```
+git clone https://github.com/tx00100xt/SE1-TSE-HNO.git
+cd SE1-TSE-HNO/Sources
+bash build-linux64.sh      	# use build-linux32.sh for 32-bits
+```
+After that , libraries will be collected in the x32 or x64 directory . Copy them to SeriousSamClassic/SamTSE/Mods/HNO/Bin folder.
+
+Windows
+-------
+* This project can be compiled starting from Windows 7 and higher.
+
+1. Download and Install [Visual Studio 2015 Community Edition] or higher.
+2. Download and Install [Windows 10 SDK 10.0.14393.795] or other.
+3. Open the solution in the Sources folder, select Release x64 or Release Win32 and compile it.
+
+Supported Architectures
+----------------------
+* `x86`
+* `aarch64`
+* `e2k` (elbrus)
+
+Supported OS
+-----------
+* `Linux`
+* `FreeBSD`
+* `Windows`
+* `Raspberry PI OS`
 
 License
 -------
@@ -44,3 +90,5 @@ License
 
 
 [HeroNumberOne.tar.xz]: https://drive.google.com/file/d/1Cxmzm8dk1WzaYS7vfzvzeILS8O78SC92/view?usp=sharing "Serious Sam Classic HeroNumberOne Mod"
+[Visual Studio 2015 Community Edition]: https://go.microsoft.com/fwlink/?LinkId=615448&clcid=0x409 "Visual Studio 2015 Community Edition"
+[Windows 10 SDK 10.0.14393.795]: https://go.microsoft.com/fwlink/p/?LinkId=838916 "Windows 10 SDK 10.0.14393.795"
