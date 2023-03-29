@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build-x64:
+  build-ubuntu-x64:
     name: Ubuntu ${{ matrix.Configuration }} ${{ matrix.Platform }}
     runs-on: ubuntu-latest
     strategy:
