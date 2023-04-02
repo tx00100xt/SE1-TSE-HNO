@@ -53,13 +53,13 @@ jobs:
           make -j$(nproc || echo 4)
           cp -vfr Debug/*.so ../../x32/SamTSE/Mods/HNO/Bin
           cd ${{github.workspace}}
-          tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-alpine-bin.tar.xz x32
+          tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-alpine-x86-bin.tar.xz x32
           
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
-        name: SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-alpine-bin.tar.xz
-        path: SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-alpine-bin.tar.xz 
+        name: SamTSE-HNO-${{ steps.date.outputs.time }}-alpine-x86-bin.tar.xz
+        path: SamTSE-HNO-${{ steps.date.outputs.time }}-alpine-x86-bin.tar.xz 
         
   build-alpine-x64:
     name: Alpine ${{ matrix.Configuration }} ${{ matrix.Platform }}
