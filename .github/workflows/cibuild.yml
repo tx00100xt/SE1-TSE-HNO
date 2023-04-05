@@ -51,7 +51,8 @@ jobs:
           cd ${{github.workspace}}/Sources/build-x86    
           make ecc
           make -j$(nproc || echo 4)
-          cp -vfr Debug/*.so ../../x32/SamTSE/Mods/HNO/Bin
+          cp -vfr Debug/libEntitiesMP.so ../../x32/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+          cp -vfr Debug/libGameMP.so ../../x32/SamTSE/Mods/HNO/Bin/libGameMP.so
           cd ${{github.workspace}}
           tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-alpine-x86-bin.tar.xz x32
           
@@ -104,7 +105,8 @@ jobs:
           cd ${{github.workspace}}/Sources/build-x64    
           make ecc
           make -j$(nproc || echo 4)
-          cp -vfr Debug/*.so ../../x64/SamTSE/Mods/HNO/Bin
+          cp -vfr Debug/libEntitiesMP.so ../../x64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+          cp -vfr Debug/libGameMP.so ../../x64/SamTSE/Mods/HNO/Bin/libGameMP.so
           cd ${{github.workspace}}
           tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-alpne-x86_64-bin.tar.xz x64
           
@@ -156,7 +158,8 @@ jobs:
           cd ${{github.workspace}}/Sources/build-x86    
           make ecc
           make -j$(nproc || echo 4)
-          cp -vfr Debug/*.so ../../x32/SamTSE/Mods/HNO/Bin
+          cp -vfr Debug/libEntitiesMP.so ../../x32/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+          cp -vfr Debug/libGameMP.so ../../x32/SamTSE/Mods/HNO/Bin/libGameMP.so
           cd ${{github.workspace}}
           XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-x86-bin.tar.xz x32
           
@@ -206,7 +209,8 @@ jobs:
           cd ${{github.workspace}}/Sources/build-x64    
           make ecc
           make -j$(nproc || echo 4)
-          cp -vfr Debug/*.so ../../x64/SamTSE/Mods/HNO/Bin
+          cp -vfr Debug/libEntitiesMP.so ../../x64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+          cp -vfr Debug/libGameMP.so ../../x64/SamTSE/Mods/HNO/Bin/libGameMP.so
           cd ${{github.workspace}}
           XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-amd64-bin.tar.xz x64
           
@@ -245,6 +249,7 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
+         move x32\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x32\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win32-bin.7z x32
       
     - name: Upload artifact
@@ -283,6 +288,7 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
+         move x64\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x64\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win64-bin.7z x64
       
         
@@ -330,7 +336,8 @@ jobs:
             cd ${{github.workspace}}/Sources/build-x64
             make ecc
             make -j$(sysctl -n hw.ncpu || echo 4)
-            cp -vfr Debug/*.so ../../x64/SamTSE/Mods/HNO/Bin
+            cp -vfr Debug/libEntitiesMP.so ../../x64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+            cp -vfr Debug/libGameMP.so ../../x64/SamTSE/Mods/HNO/Bin/libGameMP.so
             cd ${{github.workspace}}
             XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-bsd-amd64-bin.tar.xz x64
                       
@@ -386,7 +393,8 @@ jobs:
             cmake SE1-TSE-HNO/Sources -B SE1-TSE-HNO/Sources/build-armv7l -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DCMAKE_C_FLAGS=-mbe32 -DCMAKE_CXX_FLAGS=-mbe32 -DUSE_I386_NASM_ASM=FALSE -DRPI4=TRIE
             make -C SE1-TSE-HNO/Sources/build-armv7l ecc
             make -j4 -C SE1-TSE-HNO/Sources/build-armv7l
-            cp -vfr SE1-TSE-HNO/Sources/build-armv7l/Debug/*.so SE1-TSE-HNO/x32/SamTSE/Mods/HNO/Bin           
+            cp -vfr SE1-TSE-HNO/Sources/build-armv7l/Debug/libEntitiesMP.so SE1-TSE-HNO/x32/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+            cp -vfr SE1-TSE-HNO/Sources/build-armv7l/Debug/libGameMP.so SE1-TSE-HNO/x32/SamTSE/Mods/HNO/Bin/libGameMP.so             
             mv SE1-TSE-HNO/x32 armv7l
             XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz armv7l
             cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz Release/
@@ -447,7 +455,8 @@ jobs:
             cmake SE1-TSE-HNO/Sources -B SE1-TSE-HNO/Sources/build-aarch64 -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DRPI4=TRIE
             make -C SE1-TSE-HNO/Sources/build-aarch64 ecc
             make -j4 -C SE1-TSE-HNO/Sources/build-aarch64
-            cp -vfr SE1-TSE-HNO/Sources/build-aarch64/Debug/*.so SE1-TSE-HNO/x64/SamTSE/Mods/HNO/Bin            
+            cp -vfr SE1-TSE-HNO/Sources/build-aarch64/Debug/libEntitiesMP.so SE1-TSE-HNO/x64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+            cp -vfr SE1-TSE-HNO/Sources/build-aarch64/Debug/libGameMP.so SE1-TSE-HNO/x64/SamTSE/Mods/HNO/Bin/libGameMP.so           
             mv SE1-TSE-HNO/x64 aarch64
             XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz aarch64
             cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz Release/
