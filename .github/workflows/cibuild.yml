@@ -382,12 +382,12 @@ jobs:
             cat /etc/os-release
             uname -a
             gcc -c -Q -mcpu=native --help=target
-            git clone https://github.com/tx00100xt/SamTSE-HNO.git
-             cmake SamTSE-HNO/Sources -B SamTSE-HNO/Sources/build-armv7l -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DCMAKE_C_FLAGS=-mbe32 -DCMAKE_CXX_FLAGS=-mbe32 -DUSE_I386_NASM_ASM=FALSE -DRPI4=TRIE
-            make -C SamTSE-HNO/Sources/build-armv7l ecc
-            make -j4 -C SamTSE-HNO/Sources/build-armv7l
-            cp -vfr SamTSE-HNO/Sources/build-armv7l/Debug/*.so SamTSE-HNO/x32/SamTSE/Mods/HNO/Bin           
-            mv SamTSE-HNO/x32 armv7l
+            git clone https://github.com/tx00100xt/SE1-TSE-HNO.git
+            cmake SE1-TSE-HNO/Sources -B SE1-TSE-HNO/Sources/build-armv7l -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DCMAKE_C_FLAGS=-mbe32 -DCMAKE_CXX_FLAGS=-mbe32 -DUSE_I386_NASM_ASM=FALSE -DRPI4=TRIE
+            make -C SE1-TSE-HNO/Sources/build-armv7l ecc
+            make -j4 -C SE1-TSE-HNO/Sources/build-armv7l
+            cp -vfr SE1-TSE-HNO/Sources/build-armv7l/Debug/*.so SE1-TSE-HNO/x32/SamTSE/Mods/HNO/Bin           
+            mv SE1-TSE-HNO/x32 armv7l
             XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz armv7l
             cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz Release/
 
@@ -443,12 +443,12 @@ jobs:
             cat /etc/os-release
             uname -a
             gcc -c -Q -mcpu=native --help=target
-            git clone https://github.com/tx00100xt/SamTSE-HNO.git
-            cmake SamTSE-HNO/Sources -B SamTSE-HNO/Sources/build-aarch64 -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DRPI4=TRIE
-            make -C SamTSE-HNO/Sources/build-aarch64 ecc
-            make -j4 -C SamTSE-HNO/Sources/build-aarch64
-            cp -vfr SamTSE-HNO/Sources/build-aarch64/Debug/*.so SamTSE-HNO/x64/SamTSE/Mods/HNO/Bin            
-            mv SamTSE-HNO/x64 aarch64
+            git clone https://github.com/tx00100xt/SE1-TSE-HNO.git
+            cmake SE1-TSE-HNO/Sources -B SE1-TSE-HNO/Sources/build-aarch64 -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DRPI4=TRIE
+            make -C SE1-TSE-HNO/Sources/build-aarch64 ecc
+            make -j4 -C SE1-TSE-HNO/Sources/build-aarch64
+            cp -vfr SE1-TSE-HNO/Sources/build-aarch64/Debug/*.so SE1-TSE-HNO/x64/SamTSE/Mods/HNO/Bin            
+            mv SE1-TSE-HNO/x64 aarch64
             XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz aarch64
             cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz Release/
 
