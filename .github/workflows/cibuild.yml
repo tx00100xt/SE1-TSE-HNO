@@ -386,20 +386,20 @@ jobs:
              cmake SamTSE-HNO/Sources -B SamTSE-HNO/Sources/build-armv7l -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DCMAKE_C_FLAGS=-mbe32 -DCMAKE_CXX_FLAGS=-mbe32 -DUSE_I386_NASM_ASM=FALSE -DRPI4=TRIE
             make -C SamTSE-HNO/Sources/build-armv7l ecc
             make -j4 -C SamTSE-HNO/Sources/build-armv7l
-            cp -vfr SamTSE-HNO/Sources/build-armv7l/Debug/*.so SamTSE-HNO/x32/SamTSE/Mods/OddWorld/Bin           
+            cp -vfr SamTSE-HNO/Sources/build-armv7l/Debug/*.so SamTSE-HNO/x32/SamTSE/Mods/HNO/Bin           
             mv SamTSE-HNO/x32 armv7l
-            XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz armv7l
-            cp SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz Release/
+            XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz armv7l
+            cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz Release/
 
     - name: Prepare Release
       run: |           
-         sudo mv ${{github.workspace}}/Release/SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz ${{github.workspace}}/
+         sudo mv ${{github.workspace}}/Release/SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz ${{github.workspace}}/
                         
     - name: Upload Release
       uses: actions/upload-artifact@v3
       with:
-        name: SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz
-        path: SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz
+        name: SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz
+        path: SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-armv7l-bin.tar.xz
         
   build-raspios-aarch64:
     name: RPi OS Lite ${{ matrix.Configuration }} ${{ matrix.arch }}
@@ -447,17 +447,17 @@ jobs:
             cmake SamTSE-HNO/Sources -B SamTSE-HNO/Sources/build-aarch64 -DCMAKE_BUILD_TYPE=${{ matrix.Configuration }} -DRPI4=TRIE
             make -C SamTSE-HNO/Sources/build-aarch64 ecc
             make -j4 -C SamTSE-HNO/Sources/build-aarch64
-            cp -vfr SamTSE-HNO/Sources/build-aarch64/Debug/*.so SamTSE-HNO/x64/SamTSE/Mods/OddWorld/Bin            
+            cp -vfr SamTSE-HNO/Sources/build-aarch64/Debug/*.so SamTSE-HNO/x64/SamTSE/Mods/HNO/Bin            
             mv SamTSE-HNO/x64 aarch64
-            XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz aarch64
-            cp SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz Release/
+            XZ_DEFAULTS="-T 10" tar --use-compress-program=xz -cpvf SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz aarch64
+            cp SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz Release/
 
     - name: Prepare Release
       run: |           
-         sudo mv ${{github.workspace}}/Release/SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz ${{github.workspace}}/
+         sudo mv ${{github.workspace}}/Release/SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz ${{github.workspace}}/
                         
     - name: Upload Release
       uses: actions/upload-artifact@v3
       with:
-        name: SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz
-        path: SamTSE-OddWorld-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz
+        name: SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz
+        path: SamTSE-HNO-${{ steps.date.outputs.time }}-rpios-aarch64-bin.tar.xz
