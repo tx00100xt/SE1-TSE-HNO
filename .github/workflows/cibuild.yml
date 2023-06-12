@@ -200,9 +200,7 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
-         copy /Y x32\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x32\SamTSE\Mods\HNO
-         move x32\SamTSE\Mods\HNO\EntitiesMP.dll x32\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
-         cd ${{github.workspace}}
+         move x32\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x32\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win32-bin.7z x32
       
     - name: Upload artifact
@@ -241,9 +239,7 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
-         copy /Y x64\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x64\SamTSE\Mods\HNO
-         move x64\SamTSE\Mods\HNO\EntitiesMP.dll x64\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
-         cd ${{github.workspace}}
+         move x64\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x64\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win64-bin.7z x64
       
         
@@ -667,9 +663,9 @@ jobs:
             cd ${{github.workspace}}
             echo "*** Copy HNO Libraries ***"
             echo "cp -vfr Sources/build/Debug/*.so ppc64le/SamTSE/Mods/HNO/Bin"
-            cp -vfr Sources/build/Debug/libEntitiesMP.so riscv64/SamTSE/Mods/HNO/Bin
-            cp -vfr Sources/build/Debug/libEntitiesMP.so riscv64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
-            cp -vfr Sources/build/Debug/libGameMP.so riscv64/SamTSE/Mods/HNO/Bin
+            cp -vfr Sources/build/Debug/libEntitiesMP.so ppc64le/SamTSE/Mods/HNO/Bin
+            cp -vfr Sources/build/Debug/libEntitiesMP.so ppc64le/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+            cp -vfr Sources/build/Debug/libGameMP.so ppc64le/SamTSE/Mods/HNO/Bin
 
             echo "*** Create archive ***"
             tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-ppc64le-bin.tar.xz ppc64le         
@@ -771,9 +767,9 @@ jobs:
             cd ${{github.workspace}}
             echo "*** Copy HNO Libraries ***"
             echo "cp -vfr Sources/build/Debug/*.so s390x/SamTSE/Mods/HNO/Bin"
-            cp -vfr Sources/build/Debug/libEntitiesMP.so riscv64/SamTSE/Mods/HNO/Bin
-            cp -vfr Sources/build/Debug/libEntitiesMP.so riscv64/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
-            cp -vfr Sources/build/Debug/libGameMP.so riscv64/SamTSE/Mods/HNO/Bin
+            cp -vfr Sources/build/Debug/libEntitiesMP.so s390x/SamTSE/Mods/HNO/Bin
+            cp -vfr Sources/build/Debug/libEntitiesMP.so s390x/SamTSE/Mods/HNO/Bin/libEntitiesExtMP.so
+            cp -vfr Sources/build/Debug/libGameMP.so s390x/SamTSE/Mods/HNO/Bin
 
             echo "*** Create archive ***"
             tar -cJpvf SamTSE-HNO-${{ steps.date.outputs.time }}-lnx-s390x-bin.tar.xz s390x          
