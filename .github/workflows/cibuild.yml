@@ -200,8 +200,8 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
-         cd x32\SamTSE\Mods\HNO\Bin
-         copy /Y EntitiesMP.dll EntitiesExtMP.dll
+         copy /Y x32\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x32\SamTSE\Mods\HNO
+         move x32\SamTSE\Mods\HNO\EntitiesMP.dll x32\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          cd ${{github.workspace}}
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win32-bin.7z x32
       
@@ -241,8 +241,8 @@ jobs:
       run: | 
          msbuild /m /p:Configuration="${{ matrix.Configuration }}" /p:Platform="${{ matrix.Platform }}" HNO.sln 
          cd ${{github.workspace}}
-         cd x64\SamTSE\Mods\HNO\Bin
-         copy /Y EntitiesMP.dll EntitiesExtMP.dll
+         copy /Y x64\SamTSE\Mods\HNO\Bin\EntitiesMP.dll x64\SamTSE\Mods\HNO
+         move x64\SamTSE\Mods\HNO\EntitiesMP.dll x64\SamTSE\Mods\HNO\Bin\EntitiesExtMP.dll
          cd ${{github.workspace}}
          7z a -mx=9 SamTSE-HNO-${{ steps.date.outputs.time }}-win64-bin.7z x64
       
