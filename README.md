@@ -69,6 +69,26 @@ bash build-linux64.sh      	# use build-linux32.sh for 32-bits
 ```
 After that , libraries will be collected in the x32 or x64 directory . Copy them to SeriousSamClassic/SamTSE/Mods/HNO/Bin folder.
 
+
+### macOS
+
+Install dependes
+```
+brew install bison flex sdl2 libogg libvorbis zlib-ng cmake git
+```
+Type this in your terminal:
+```
+git clone https://github.com/tx00100xt/SE1-TSE-HNO.git
+cd SE1-TSE-HNO/Sources
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j4
+make install
+```
+After that , libraries will be collected in the Mods directory.   
+Copy them to SeriousSamClassic/SamTSE/Mods/HNO/Bin folder.
+
 Windows
 -------
 * This project can be compiled starting from Windows 7 and higher.
@@ -89,11 +109,12 @@ Supported OS
 * `FreeBSD`
 * `Windows`
 * `Raspberry PI OS`
+* `macOS`
 
 ### Build status
 |CI|Platform|Compiler|Configurations|Platforms|Status|
 |---|---|---|---|---|---|
-|GitHub Actions|Windows, Ubuntu, FreeBSD, Alpine, Raspberry PI OS Lite|MSVC, GCC, Clang|Release|x86, x64, armv7l, aarch64|![GitHub Actions Build Status](https://github.com/tx00100xt/SE1-TSE-HNO/actions/workflows/cibuild.yml/badge.svg)
+|GitHub Actions|Windows, Ubuntu, FreeBSD, Alpine, Raspberry PI OS Lite, macOS|MSVC, GCC, Clang|Release|x86, x64, armv7l, aarch64, riscv64, ppc64le, s390x|![GitHub Actions Build Status](https://github.com/tx00100xt/SE1-TSE-HNO/actions/workflows/cibuild.yml/badge.svg)
 
 You can download a the automatically build based on the latest commit.  
 To do this, go to the [Actions tab], select the top workflows, and then Artifacts.
