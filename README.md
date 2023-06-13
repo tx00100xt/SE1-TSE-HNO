@@ -41,6 +41,28 @@ cd SE1-TSE-HNO/Sources
 ```
 After that , libraries will be collected in the x32 or x64 directory . Copy them to SeriousSamClassic/SamTSE/Mods/HNO/Bin folder.
 
+### Ubuntu
+
+Instead of building you can install packages from ppa by adding ppa:tx00100xt/serioussam to your system's Software Sources.
+```bash
+sudo add-apt-repository ppa:tx00100xt/serioussam
+sudo add-apt-repository ppa:tx00100xt/serioussam-mods
+sudo apt update
+```
+This PPA can be added to your system manually by copying the lines below and adding them to your system's software sources.
+```
+deb https://ppa.launchpadcontent.net/tx00100xt/serioussam/ubuntu YOUR_UBUNTU_VERSION_HERE main 
+deb-src https://ppa.launchpadcontent.net/tx00100xt/serioussam/ubuntu YOUR_UBUNTU_VERSION_HERE main 
+```
+After adding ppa, run the commands:
+```bash
+sudo apt install serioussamclassic serioussam-hno
+```
+or
+```bash
+sudo apt install serioussamclassic-vk serioussam-hno
+```
+
 ### Gentoo
 
 To build a game for gentoo, use a https://github.com/tx00100xt/serioussam-overlay containing ready-made ebuilds for building the game and add-ons.
