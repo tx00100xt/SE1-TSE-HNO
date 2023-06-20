@@ -24,6 +24,7 @@ Download [HeroNumberOne.tar.xz] archive and unpack to  SeriousSamClassic/SamTSE/
 You can also download the archive using curl or wget:
 ```
 wget https://archive.org/download/hero-number-one/HeroNumberOne.tar.xz
+wget https://archive.org/download/hno-data-messages-eng/HNO-Data-messages-eng.tar.xz
 ```
 To start the modification, use the game menu - item Modification.
 
