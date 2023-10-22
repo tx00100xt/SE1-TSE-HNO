@@ -123,10 +123,10 @@ void CGame::ConsoleRender(CDrawPort *pdp)
       // stop
       fConsoleFadeValue = 0.0f;
       _pGame->gm_csConsoleState = CS_OFF;
-
+#ifdef PLATFORM_UNIX
       if (_pInput != NULL) // rcg02042003 hack for SDL vs. Win32.
         _pInput->ClearRelativeMouseMotion();
-
+#endif
       // if not in network
       if (!_pNetwork->IsNetworkEnabled()) {
         // don't show last lines on screen after exiting console
@@ -553,7 +553,7 @@ void CGame::ConsoleKeyDown( MSG msg)
   case VK_BACK:    Key_Backspace(bShift, FALSE);  break;
   case VK_DELETE:  Key_Backspace(bShift, TRUE);   break;
   case VK_LEFT:    if( iCursorPos > 0)                      iCursorPos--;  break;
-  case VK_RIGHT:   if( iCursorPos < strlen(strEditingLine)) iCursorPos++;  break;
+  case VK_RIGHT:   if( iCursorPos < static_cast<INDEX>(strlen(strEditingLine))) iCursorPos++;  break;
   case VK_HOME:    iCursorPos = 0;                       break;
   case VK_END:     iCursorPos = strlen(strEditingLine);  break;
   }
